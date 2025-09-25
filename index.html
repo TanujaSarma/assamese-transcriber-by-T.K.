@@ -80,6 +80,96 @@
     }
     .slide img {
       width: 200px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transcription Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom right, #0f2c74, #1d4ed8); /* darker blue */
+      color: #333;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .section {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      padding: 30px;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .section img {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+    }
+    .creator {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 20px;
+    }
+    .creator-text {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .creator-profiles {
+      display: flex;
+      gap: 30px;
+    }
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .profile p {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+    .about {
+      flex: 2;
+      background: #f5f9ff;
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .about h3 {
+      margin-top: 0;
+    }
+    /* Carousel */
+    .carousel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .carousel h2 {
+      margin-bottom: 20px;
+    }
+    .slides {
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+      max-width: 700px;
+      position: relative;
+    }
+    .slide {
+      min-width: 100%;
+      transition: transform 0.5s ease;
+      text-align: center;
+    }
+    .slide img {
+      width: 200px;
       height: 200px;
       border-radius: 12px;
       object-fit: cover;
@@ -128,33 +218,35 @@
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
-      .head{
-        background:#FFFFFF;  
-      }
+    .head{
+      background:#FFFFFF;  
     }
   </style>
 </head>
 <body>
   <div class="head">
-  <h1 align="center"><b>ASSAMESE TRANSCRIBER</b></h1>
+    <h1 align="center"><b>ASSAMESE TRANSCRIBER</b></h1>
   </div>
   <div class="container">
     <!-- Top Section -->
     <div class="section">
       <div class="creator">
-        <img src="cr1.png" alt="Creator 1">
-        <img src="cr2.jpeg" alt="Creator 2" style="margin-left:-20px;">
         <div class="creator-text">
-          <h3><u><b>Meet the Creators</b></u></h3><br><br>
+          <h3><u><b>Meet the Creators</b></u></h3>
+        </div>
+        <div class="creator-profiles">
+          <div class="profile">
+            <img src="cr1.png" alt="Creator 1">
+            <p>Tanuja Sarma</p>
           </div>
-        <div class =cr-text">
-          <p align="left"><strong>Tanuja Sarma</strong></p><br>
-          
-          <p><strong>Kritika Sharma</strong></p>
+          <div class="profile">
+            <img src="cr2.jpeg" alt="Creator 2">
+            <p>Kritika Sharma</p>
+          </div>
         </div>
       </div>
       <div class="about">
-        <h3><b>About the Website<b></h3>
+        <h3><b>About the Website</b></h3>
         <p>
           This project is a speech-to-text transcription system that allows users to upload or record audio 
           and instantly convert it into Assamese text. It is powered by Wav2Vec2-Large-XLSR-53 fine-tuned for Assamese, 
