@@ -2,232 +2,216 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Transcription Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assamese Transcriber</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: linear-gradient(to bottom right, #0f2c74, #1d4ed8); /* darker blue */
-      color: #333;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 40px auto;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #a7d3f7, #d0f0fa);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
       padding: 20px;
     }
-    .section {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      padding: 30px;
-      margin-bottom: 40px;
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      background: transparent;
+    }
+
+    .header {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+      gap: 10px;
     }
-    .section img {
-      border-radius: 50%;
-      width: 80px;
-      height: 80px;
+
+    .header img {
+      width: 50px;
+      height: 50px;
       object-fit: cover;
+      border-radius: 10px;
     }
+
+    .header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+      color: #003366;
+      font-weight: bold;
+    }
+
+    .title-box {
+      background: white;
+      border-radius: 30px;
+      padding: 20px;
+      margin: 20px auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .title-box h2 {
+      font-size: 1.8rem;
+      margin: 0;
+      color: #0073e6;
+      font-weight: bold;
+    }
+
+    .creators {
+      background: white;
+      display: inline-block;
+      padding: 20px;
+      border-radius: 50px;
+      margin: 20px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .creators h3 {
+      margin: 0;
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .creator-list {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
     .creator {
       display: flex;
       flex-direction: column;
       align-items: center;
-      flex: 1;
-    }
-    .creator-text {
-      margin-bottom: 15px;
       text-align: center;
     }
-    .creator-profiles {
-      display: flex;
-      gap: 30px;
-    }
-    .profile {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .profile p {
-      margin-top: 8px;
-      font-weight: bold;
-    }
-    .about {
-      flex: 2;
-      background: #82CAFF;
-      padding: 20px;
-      border-radius: 12px;
-    }
-    .about h3 {
-      margin-top: 0;
-    }
-    /* Carousel */
-    .carousel {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .carousel h2 {
-      margin-bottom: 20px;
-    }
-    .slides {
-      display: flex;
-      overflow: hidden;
-      width: 100%;
-      max-width: 700px;
-      position: relative;
-    }
-    .slide {
-      min-width: 100%;
-      transition: transform 0.5s ease;
-      text-align: center;
-    }
-    .slide img {
-      width: 200px;
-      height: 200px;
-      border-radius: 12px;
+
+    .creator img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
       object-fit: cover;
-      cursor: pointer;
+      margin-bottom: 5px;
     }
-    .controls {
-      margin: 15px 0;
+
+    .creator p {
+      font-size: 0.9rem;
+      margin: 0;
+      color: #0073e6;
+      font-weight: 600;
     }
-    .controls button {
-      padding: 8px 14px;
-      border: none;
-      border-radius: 8px;
-      background: #3a73f1;
+
+    .description {
+      background: #1d6bb6;
       color: white;
-      margin: 0 5px;
-      cursor: pointer;
-      font-size: 16px;
+      padding: 20px;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      text-align: justify;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-    .try-btn {
-      padding: 12px 22px;
-      font-size: 16px;
+
+    .arrow {
+      margin: 20px 0;
+      font-size: 2rem;
+      color: #0073e6;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #bafac5;
+      color: #003366;
       border: none;
-      border-radius: 12px;
-      background: #1e40af;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s;
+      border-radius: 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
     }
-    .try-btn:hover {
-      background: #163383;
+
+    .btn:hover {
+      background: #8ff3a0;
+      transform: scale(1.05);
     }
-    /* Modal for full image */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .title-box h2 {
+        font-size: 1.4rem;
+      }
+      .creator img {
+        width: 60px;
+        height: 60px;
+      }
+      .description {
+        font-size: 0.85rem;
+      }
     }
-    .modal img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
-    .head{
-      background:#FFFFFF;  
+
+    @media (max-width: 480px) {
+      .title-box h2 {
+        font-size: 1.2rem;
+      }
+      .header h1 {
+        font-size: 1.2rem;
+      }
+      .btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="head">
-    <h1 align="center"><b>ASSAMESE TRANSCRIBER</b></h1>
-  </div>
   <div class="container">
-    <!-- Top Section -->
-    <div class="section">
-      <div class="creator">
-        <div class="creator-text">
-          <h3><u><b>Meet the Creators</b></u></h3>
+    <!-- Header -->
+    <div class="header">
+      <img src="https://unsplash.com/photos/a-bunch-of-flowers-that-are-in-a-vase-yurVcRioP8o" alt="logo">
+      <h1>Academy.ai</h1>
+    </div>
+
+    <!-- Title -->
+    <div class="title-box">
+      <h2>ASSAMESE TRANSCRIBER</h2>
+    </div>
+
+    <!-- Creators -->
+    <div class="creators">
+      <h3>Creators</h3>
+      <div class="creator-list">
+        <div class="creator">
+          <img src="https://unsplash.com/photos/a-bunch-of-flowers-that-are-in-a-vase-yurVcRioP8o" alt="creator1">
+          <p>1. Tanuja Sarma</p>
         </div>
-        <div class="creator-profiles">
-          <div class="profile">
-            <img src="cr1.png" alt="Creator 1">
-            <p>Tanuja Sarma</p>
-          </div>
-          <div class="profile">
-            <img src="cr2.jpeg" alt="Creator 2">
-            <p>Kritika Sharma</p>
-          </div>
+        <div class="creator">
+          <img src="https://unsplash.com/photos/a-bunch-of-flowers-that-are-in-a-vase-yurVcRioP8o" alt="creator2">
+          <p>2. Kritika Sharma</p>
         </div>
-      </div>
-      <div class="about">
-        <h3><b>About the Website</b></h3>
-        <p>
-          This project is a speech-to-text transcription system that allows users to upload or record audio 
-          and instantly convert it into Assamese text. It is powered by Wav2Vec2-Large-XLSR-53 fine-tuned for Assamese, 
-          a state of the art transformer model for automatic speech recognition. The system is deployed as a web application 
-          where users can interact easily through a clean interface. This work is developed as part of our college minor project, 
-          showcasing practical use of deep learning in natural language processing.
-        </p>
       </div>
     </div>
 
-    <!-- Carousel Section -->
-    <div class="section carousel">
-      <h2><u>Transcription Example</u></h2>
-      <div class="slides" id="slides">
-        <div class="slide"><img src="tr1.png" alt="Example 1" onclick="openModal(this)"></div>
-        <div class="slide"><img src="tr2.png" alt="Example 2" onclick="openModal(this)"></div>
-        <div class="slide"><img src="tr2.png" alt="Example 2" onclick="openModal(this)"></div> 
-      </div>
-      <div class="controls">
-        <button onclick="prevSlide()">⟨</button>
-        <button onclick="nextSlide()">⟩</button>
-      </div>
-      <button class="try-btn" onclick="window.location.href='https://tanujasarma-transcribe-web.hf.space/'">
-       <b>TRY OUR TRANSCRIPTION</b>
-      </button>
+    <!-- Description -->
+    <div class="description">
+      This project is a speech-to-text transcription system that allows users to upload or record audio and instantly convert it into Assamese text. It is powered by Wav2Vec2-Large-XLSR-53 fine-tuned for Assamese, a state of the art transformer model for automatic speech recognition. The system is deployed as a web application where users can interact easily through a clean interface. This work is developed as part of our college minor project, showcasing practical use of deep learning in natural language processing.
     </div>
+
+    <!-- Arrow -->
+    <div class="arrow">⬇</div>
+
+    <!-- Button -->
+    <a href="https://tanujasarma-transcribe-web.hf.space/" target="_blank" class="btn">Try transcriber</a>
   </div>
-
-  <!-- Modal -->
-  <div class="modal" id="modal" onclick="closeModal()">
-    <img id="modalImg" src="" alt="Full Image">
-  </div>
-
-  <script>
-    let currentIndex = 0;
-    const slides = document.querySelectorAll('.slide');
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.style.transform = `translateX(${100 * (i - index)}%)`;
-      });
-    }
-
-    function prevSlide() {
-      currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
-      showSlide(currentIndex);
-    }
-
-    function nextSlide() {
-      currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
-      showSlide(currentIndex);
-    }
-
-    // Modal functions
-    function openModal(img) {
-      document.getElementById('modal').style.display = 'flex';
-      document.getElementById('modalImg').src = img.src;
-    }
-    function closeModal() {
-      document.getElementById('modal').style.display = 'none';
-    }
-
-    // Initialize
-    showSlide(currentIndex);
-  </script>
 </body>
 </html>
