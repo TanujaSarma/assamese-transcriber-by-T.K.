@@ -9,27 +9,33 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      color: white;
       background: url('Bg.png') no-repeat center center/cover;
     }
+
+    /* HEADER */
     header {
       display: flex;
       align-items: center;
-      padding: 10px;
+      padding: 5px 10px;   /* reduced padding */
+      margin: 0;
     }
     header img.logo {
       height: 40px;
-      margin-right: 10px;
+      margin-right: 8px;  /* smaller gap */
     }
     header h1 {
       font-size: 20px;
       text-shadow: 2px 2px 4px #333;
+      margin: 0;
+      line-height: 1; /* tighter vertical spacing */
     }
+
+    /* NAVIGATION BAR */
     .nav-bar {
       position: relative;
       width: 100%;
       max-width: 1000px;
-      margin: 10px auto;
+      margin: 5px auto 0 auto; /* less gap between header & navbar */
     }
     .nav-bar img {
       width: 100%;
@@ -42,88 +48,100 @@
       width: 100%;
       height: 100%;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-evenly;
       align-items: center;
+      padding: 0 20px;
     }
     .nav-links a, .nav-links button {
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.5);
       color: white;
       border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
+      padding: 10px 20px;
+      border-radius: 8px;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 16px;
       cursor: pointer;
+      flex: 1;
+      margin: 0 5px;
+      text-align: center;
     }
+
+    /* PARAGRAPH SECTION */
     .paragraph-section {
-      background: url('Home para.png') no-repeat center center/cover;
-      padding: 30px;
-      margin: 30px;
-      
+      position: relative;
+      margin: 30px auto;
+      max-width: 800px;
     }
-    .paragraph-section p {
+    .paragraph-section img {
+      width: 100%;
+      display: block;
+    }
+    .paragraph-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 30px;
+      box-sizing: border-box;
       text-align: justify;
       font-size: 16px;
       color: black;
     }
+
+    /* ARROW */
     .arrow {
       display: block;
       margin: 20px auto;
       height: 40px;
     }
+
+    /* SWIPER GALLERY */
+    .gallery-container {
+      position: relative;
+      max-width: 600px;
+      margin: auto;
+      overflow: hidden;
+    }
     .gallery {
       display: flex;
-      overflow-x: auto;
-      gap: 10px;
-      padding: 20px;
+      transition: transform 0.5s ease;
     }
     .gallery img {
-      height: 150px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
       width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
+      flex-shrink: 0;
+      border-radius: 8px;
     }
-    .modal img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
+    .controls {
+      text-align: center;
+      margin-top: 10px;
     }
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 40px;
+    .controls button {
+      padding: 8px 15px;
+      margin: 5px;
+      border: none;
+      background: rgba(0,0,0,0.6);
       color: white;
+      border-radius: 5px;
       cursor: pointer;
     }
+
+    /* RESPONSIVE */
     @media(max-width: 768px) {
       header h1 { font-size: 16px; }
-      .paragraph-section p { font-size: 14px; }
-      .gallery img { height: 100px; }
+      .nav-links a, .nav-links button { font-size: 12px; padding: 8px; }
+      .paragraph-text { font-size: 14px; padding: 20px; }
     }
   </style>
 </head>
 <body>
+  <!-- HEADER -->
   <header>
     <img src="Logo.png" alt="Logo" class="logo">
     <h1>ACADEMY.AI</h1>
   </header>
 
+  <!-- NAVIGATION -->
   <div class="nav-bar">
     <img src="Nav-bar.png" alt="Navigation Bar">
     <div class="nav-links">
@@ -136,40 +154,45 @@
     </div>
   </div>
 
+  <!-- PARAGRAPH -->
   <div class="paragraph-section">
-    <p>Welcome to Academy.AI your smart academic companion! Our platform is designed to guide students in their learning journey by providing useful resources on choosing the right projects, exploring project ideas, and understanding what skills to learn. The highlight of Academy.AI is our Assamese Transcriber, where students can easily record or upload their voice to get Assamese transcriptions, making learning and note-taking simpler. With helpful guides, resources, and tools, Academy.AI aims to make project work and learning more accessible, practical, and student-friendly.</p>
+    <img src="Home para.png" alt="Paragraph Background">
+    <div class="paragraph-text">
+      <p>Welcome to Academy.AI your smart academic companion! Our platform is designed to guide students in their learning journey by providing useful resources on choosing the right projects, exploring project ideas, and understanding what skills to learn. The highlight of Academy.AI is our Assamese Transcriber, where students can easily record or upload their voice to get Assamese transcriptions, making learning and note-taking simpler. With helpful guides, resources, and tools, Academy.AI aims to make project work and learning more accessible, practical, and student-friendly.</p>
+    </div>
   </div>
 
+  <!-- ARROW -->
   <img src="arrow .png" alt="Arrow" class="arrow">
 
-  <div class="gallery">
-    <img src="tr2.png" alt="Gallery Image">
-    <img src="tr2.png" alt="Gallery Image">
-    <img src="tr2.png" alt="Gallery Image">
-    <img src="tr2.png" alt="Gallery Image">
+  <!-- GALLERY SLIDER -->
+  <div class="gallery-container">
+    <div class="gallery" id="gallery">
+      <img src="tr2.png" alt="Gallery Image">
+      <img src="tr2.png" alt="Gallery Image">
+      <img src="tr2.png" alt="Gallery Image">
+      <img src="tr2.png" alt="Gallery Image">
+    </div>
   </div>
-
-  <div class="modal" id="modal">
-    <span class="close" id="close">&times;</span>
-    <img id="modal-img" src="" alt="Popup">
+  <div class="controls">
+    <button onclick="prevSlide()">Prev</button>
+    <button onclick="nextSlide()">Next</button>
   </div>
 
   <script>
-    const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("modal-img");
-    const close = document.getElementById("close");
-    const galleryImgs = document.querySelectorAll(".gallery img");
+    let index = 0;
+    const gallery = document.getElementById("gallery");
+    const totalImages = gallery.children.length;
 
-    galleryImgs.forEach(img => {
-      img.addEventListener("click", () => {
-        modal.style.display = "flex";
-        modalImg.src = img.src;
-      });
-    });
+    function showSlide(i) {
+      if (i >= totalImages) index = 0;
+      else if (i < 0) index = totalImages - 1;
+      else index = i;
+      gallery.style.transform = `translateX(-${index * 100}%)`;
+    }
 
-    close.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
+    function nextSlide() { showSlide(index + 1); }
+    function prevSlide() { showSlide(index - 1); }
   </script>
 </body>
 </html>
