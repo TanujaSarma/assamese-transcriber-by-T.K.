@@ -68,13 +68,12 @@
       font-weight: 500;
       position: relative;
     }
-/* MODIFIED: Targets only the main links for the '|' separator */
-.main-nav-links a:not(:last-child)::after {
-  content: '|';
-  color: #ccc;
-  margin-left: 25px;
-  font-weight: 100;
-}
+    .nav-links a:not(:last-child)::after {
+      content: '|';
+      color: #ccc;
+      margin-left: 25px;
+      font-weight: 100;
+    }
     .nav-icons {
       display: flex;
       align-items: center;
@@ -188,35 +187,6 @@
         }
         .slider-arrow svg { width: 30px; height: 30px; }
     }
-    /* NEW CSS RULES TO ADD */
-.nav-links-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  flex-grow: 1; /* Allows the wrapper to take up available space */
-}
-
-.main-nav-links {
-  display: flex;
-  gap: 25px;
-}
-
-.guide-link {
-  position: relative;
-  margin-left: 25px; /* Adds space before the line */
-  padding-left: 25px; /* Adds space after the line */
-}
-
-.guide-link::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 60%; /* Adjust height of the vertical line */
-  background-color: #ccc;
-}
   </style>
 </head>
 <body>
@@ -228,16 +198,13 @@
 
   <main class="main-container">
     
-  <div class="nav-links-wrapper">
-  <div class="main-nav-links">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#transcriber">Transcriber</a>
-  </div>
-  <div class="guide-link">
-    <a href="#guide">"How to" guide</a>
-  </div>
-  </div>
+    <nav class="nav-container">
+      <div class="nav-links">
+        <a href="#home">| Home | </a>
+        <a href="#about">| About | </a>
+        <a href="#transcriber">| Transcriber</a>
+        <a href="#guide">| "How to" guide |</a>
+      </div>
       <div class="nav-icons">
         <a href="#linkedin" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="#0077B5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg>
