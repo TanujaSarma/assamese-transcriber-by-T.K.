@@ -16,97 +16,84 @@
     header {
       display: flex;
       align-items: center;
-      padding: 5px 10px;   /* reduced padding */
-      margin: 0;
+      padding: 10px 15px;
     }
     header img.logo {
-      height: 60px;
-      margin-right: 8px;  /* smaller gap */
+      height: 50px;
+      margin-right: 10px;
     }
     header h1 {
-      font-size: 50px;
+      font-size: 28px;
       color: white;
       text-shadow: 2px 2px 4px #333;
       margin: 0;
-      line-height: 1; /* tighter vertical spacing */
     }
 
     /* NAVIGATION BAR */
     .nav-bar {
       position: relative;
-      width: 100%;
+      width: 90%;
       max-width: 1000px;
-      margin: 5px auto 0 auto; /* less gap between header & navbar */
+      margin: 15px auto;
     }
     .nav-bar img {
       width: 100%;
       display: block;
-      position: relative;
-      top: -140px;
     }
     .nav-links {
-      position: relative;
-      top: -241px;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       display: flex;
-      justify-content: space-evenly;
-      align-items: space-evenly;
-      padding: 0 15px;
+      justify-content: center;
+      align-items: center;
+      gap: 20px; /* control spacing between links */
+      flex-wrap: wrap;
     }
-    .nav-links a, .nav-links button {
+    .nav-links a {
       color: black;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
       text-decoration: none;
       font-size: 17px;
-      cursor: pointer;
-      flex: 1;
-      margin: 0 1px;
-      text-align: center;
-      position: relative;
-      top: -241px;
+      font-weight: bold;
+      padding: 8px 14px;
+      border-radius: 6px;
+    }
+    .nav-links a:hover {
+      background: rgba(0,0,0,0.1);
     }
 
     /* PARAGRAPH SECTION */
     .paragraph-section {
       position: relative;
-      top: -60px;
+      width: 90%;
+      max-width: 900px;
       margin: 30px auto;
-      max-width: 800px;
     }
     .paragraph-section img {
       width: 100%;
       display: block;
-      position: relative;
-      top: -100px;
     }
     .paragraph-text {
-      position: relative;
-      top: -200px;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      padding: 30px;
-      box-sizing: border-box;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 85%;
       text-align: justify;
-      font-size: 20px;
+      font-size: 18px;
       color: black;
     }
 
     /* ARROW */
     .arrow {
-      position: relative 
-      top: -100px;
       display: block;
-      margin: 5px auto;
-      height: 200px;
-      width: 200px;
+      margin: 20px auto;
+      height: 100px;
+      width: auto;
     }
 
-    /* SWIPER GALLERY */
+    /* GALLERY SLIDER */
     .gallery-container {
       position: relative;
       max-width: 600px;
@@ -138,9 +125,10 @@
 
     /* RESPONSIVE */
     @media(max-width: 768px) {
-      header h1 { font-size: 16px; }
-      .nav-links a, .nav-links button { font-size: 12px; padding: 8px; }
-      .paragraph-text { font-size: 14px; padding: 20px; }
+      header h1 { font-size: 20px; }
+      .nav-links { gap: 10px; }
+      .nav-links a { font-size: 14px; padding: 6px 10px; }
+      .paragraph-text { font-size: 15px; }
     }
   </style>
 </head>
@@ -155,11 +143,11 @@
   <div class="nav-bar">
     <img src="Nav-bar.png" alt="Navigation Bar">
     <div class="nav-links">
-      <a href="#home"><b>Home</a>
+      <a href="#home">Home</a>
       <a href="#about">About Us</a>
       <a href="#transcriber">Transcriber</a>
       <a href="#guide">How to Guide</a>
-      <a href="#guide">Linkedin</b></a>
+      <a href="#linkedin">LinkedIn</a>
     </div>
   </div>
 
@@ -167,12 +155,14 @@
   <div class="paragraph-section">
     <img src="Home para.png" alt="Paragraph Background">
     <div class="paragraph-text">
-      <p><b>Welcome to Academy.AI your smart academic companion! Our platform is designed to guide students in their learning journey by providing useful resources on choosing the right projects, exploring project ideas, and understanding what skills to learn. The highlight of Academy.AI is our Assamese Transcriber, where students can easily record or upload their voice to get Assamese transcriptions, making learning and note-taking simpler. With helpful guides, resources, and tools, Academy.AI aims to make project work and learning more accessible, practical, and student-friendly.<b></p>
+      <p>
+        Welcome to Academy.AI your smart academic companion! Our platform is designed to guide students in their learning journey by providing useful resources on choosing the right projects, exploring project ideas, and understanding what skills to learn. The highlight of Academy.AI is our Assamese Transcriber, where students can easily record or upload their voice to get Assamese transcriptions, making learning and note-taking simpler. With helpful guides, resources, and tools, Academy.AI aims to make project work and learning more accessible, practical, and student-friendly.
+      </p>
     </div>
   </div>
 
   <!-- ARROW -->
-  <img src="arrow .png" alt="Arrow" class="arrow">
+  <img src="arrow.png" alt="Arrow" class="arrow">
 
   <!-- GALLERY SLIDER -->
   <div class="gallery-container">
@@ -205,3 +195,4 @@
   </script>
 </body>
 </html>
+      
