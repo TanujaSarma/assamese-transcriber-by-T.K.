@@ -13,7 +13,9 @@
       margin: 0;
       padding: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(160deg, #82aaff, #c2e2ff);
+      /* MODIFIED: Using your Bg.png image */
+      background: url('Bg.png') no-repeat center center fixed;
+      background-size: cover;
       min-height: 100vh;
     }
 
@@ -54,7 +56,7 @@
       align-items: center;
       width: 100%;
       max-width: 950px;
-      box-sizing: border-box; /* Important for padding and width */
+      box-sizing: border-box;
     }
     .nav-links {
       display: flex;
@@ -89,12 +91,15 @@
     
     /* PARAGRAPH SECTION */
     .paragraph-section {
-      background-color: white;
-      border-radius: 35px;
-      padding: 40px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      /* MODIFIED: Using your Home para.png image as a background */
+      background: url('Home para.png') no-repeat center center;
+      background-size: 100% 100%; /* Stretches the image to fit the container */
+
+      /* MODIFIED: Adjusted padding to fit text inside the image */
+      padding: 6% 8%; /* Using percentages for better scaling */
+      
       width: 100%;
-      max-width: 870px; /* 950px - padding */
+      max-width: 950px;
       margin-top: 40px;
       box-sizing: border-box;
     }
@@ -102,7 +107,7 @@
       margin: 0;
       font-size: 1.1rem;
       line-height: 1.7;
-      color: #333;
+      color: #1f1f1f; /* Slightly darker text for better readability */
       text-align: left;
     }
     
@@ -140,7 +145,7 @@
       max-width: 700px;
       width: 100%;
       margin: auto;
-      overflow: hidden; /* This hides the other images */
+      overflow: hidden; 
       border-radius: 12px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     }
@@ -170,7 +175,7 @@
     @media (max-width: 900px) {
       header h1 { font-size: 2rem; }
       .nav-container { flex-direction: column; gap: 15px; }
-      .nav-links a:not(:last-child)::after { display: none; } /* Hide separators on small screens */
+      .nav-links a:not(:last-child)::after { display: none; }
     }
     @media (max-width: 600px) {
         body { padding-bottom: 30px; }
@@ -179,12 +184,12 @@
         header h1 { font-size: 1.8rem; }
         .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
         .nav-links a { font-size: 1rem; }
-        .paragraph-section { padding: 25px; border-radius: 25px;}
+        .paragraph-section {
+           padding: 8% 10%; /* Adjust padding for mobile */
+        }
         .paragraph-section p { font-size: 1rem; }
         .gallery-section h2 { font-size: 1.5rem; text-align: center; }
-        .slider-wrapper {
-            gap: 5px;
-        }
+        .slider-wrapper { gap: 5px; }
         .slider-arrow svg { width: 30px; height: 30px; }
     }
   </style>
