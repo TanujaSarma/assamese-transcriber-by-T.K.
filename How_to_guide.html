@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academy.AI - How to Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* GENERAL STYLES */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      /* Using your Bg.png image */
+      background: url('Bg.png') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex; /* Use flexbox for body to manage overall layout */
+      flex-direction: column;
+      align-items: center; /* Center content horizontally */
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      padding: 20px 5%; /* Adjusted padding for top header */
+      width: 100%;
+      box-sizing: border-box;
+      max-width: 1200px; /* Max width for content */
+      justify-content: flex-start; /* Align header items to the start */
+    }
+    header img.logo {
+      height: 60px;
+      margin-right: 15px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      margin: 0;
+      font-weight: 700;
+    }
+
+    /* MAIN CONTENT WRAPPER - to center everything below header */
+    .main-content-wrapper {
+        width: 100%;
+        max-width: 950px; /* Match the width of your previous page content */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px; /* Horizontal padding for responsiveness */
+        box-sizing: border-box;
+    }
+
+    /* "HOW TO" GUIDE HEADING */
+    .how-to-guide-heading {
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.15); /* Slightly transparent white */
+      border-radius: 25px;
+      padding: 15px 40px;
+      margin: 40px 0;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 191, 255, 0.7); /* Soft blue glow */
+      border: 2px solid rgba(0, 191, 255, 0.5); /* Neon blue border */
+      backdrop-filter: blur(5px); /* Frosty glass effect */
+      -webkit-backdrop-filter: blur(5px); /* Safari support */
+      animation: neon-pulse 1.5s infinite alternate; /* Neon pulse effect */
+    }
+
+    .how-to-guide-heading h2 {
+      margin: 0;
+      font-size: 2.2rem;
+      color: white;
+      text-shadow: 0 0 8px rgba(0, 191, 255, 0.8), 0 0 15px rgba(0, 191, 255, 0.5); /* Text glow */
+      font-weight: 700;
+    }
+
+    @keyframes neon-pulse {
+      from {
+        box-shadow: 0 0 10px rgba(0, 191, 255, 0.5), 0 0 20px rgba(0, 191, 255, 0.3);
+        border-color: rgba(0, 191, 255, 0.4);
+      }
+      to {
+        box-shadow: 0 0 20px rgba(0, 191, 255, 0.7), 0 0 30px rgba(0, 191, 255, 0.5);
+        border-color: rgba(0, 191, 255, 0.7);
+      }
+    }
+
+    /* ACCORDION (EXPANDABLE SECTIONS) */
+    .accordion-item {
+      width: 100%;
+      max-width: 800px; /* Slightly narrower than max-width of wrapper */
+      margin-bottom: 20px;
+      background-color: white;
+      border-radius: 25px; /* Rounded corners for each item */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden; /* Ensures content stays within rounded corners */
+    }
+
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 30px;
+      cursor: pointer;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #333;
+      background-color: #ffffff; /* White background for header */
+      border-radius: 25px; /* Ensure header has rounded corners */
+      transition: background-color 0.3s ease;
+    }
+
+    .accordion-header:hover {
+      background-color: #f0f0f0;
+    }
+
+    .accordion-header .arrow-icon {
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+      margin-right: 10px; /* Space between arrow and text */
+      color: #007bff; /* Blue color for the 'V' icon */
+    }
+
+    .accordion-item.active .accordion-header .arrow-icon {
+      transform: rotate(-180deg); /* Rotate 'V' when active */
+    }
+
+    .accordion-content {
+      padding: 0 30px; /* Adjust horizontal padding */
+      max-height: 0; /* Hidden by default */
+      overflow: hidden;
+      transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+      background-color: #fdfdfd; /* Light background for content */
+      border-top: 1px solid #eee; /* Separator for content */
+      border-bottom-left-radius: 25px; /* Match item border radius */
+      border-bottom-right-radius: 25px;
+    }
+    
+    .accordion-content p {
+      margin: 20px 0; /* Add top/bottom margin for paragraphs */
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .accordion-item.active .accordion-content {
+      max-height: 500px; /* Or a sufficiently large value for expansion */
+      padding: 20px 30px; /* Add vertical padding when active */
+    }
+
+    /* BOTTOM PARAGRAPH */
+    .bottom-paragraph-section {
+      background-color: white;
+      border-radius: 35px;
+      padding: 40px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 870px;
+      margin-top: 40px;
+      margin-bottom: 50px; /* Space at the bottom */
+      box-sizing: border-box;
+    }
+    .bottom-paragraph-section p {
+      margin: 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #333;
+      text-align: left;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      header { padding: 15px 5%; }
+      header img.logo { height: 45px; }
+      header h1 { font-size: 2rem; }
+      .how-to-guide-heading { padding: 10px 25px; margin: 30px 0;}
+      .how-to-guide-heading h2 { font-size: 1.8rem; }
+      .accordion-header { padding: 15px 20px; font-size: 1.1rem; }
+      .accordion-header .arrow-icon { font-size: 1.3rem; margin-right: 5px; }
+      .accordion-content { padding: 0 20px; }
+      .accordion-item.active .accordion-content { padding: 15px 20px; }
+      .accordion-content p { font-size: 0.95rem; margin: 15px 0; }
+      .bottom-paragraph-section { padding: 30px; }
+      .bottom-paragraph-section p { font-size: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      header img.logo { height: 40px; }
+      header h1 { font-size: 1.5rem; }
+      .how-to-guide-heading h2 { font-size: 1.5rem; }
+      .accordion-header { font-size: 1rem; padding: 12px 15px;}
+      .accordion-header .arrow-icon { font-size: 1.1rem; }
+      .bottom-paragraph-section { padding: 20px; }
+      .bottom-paragraph-section p { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  
+  <header>
+    <img src="Logo.png" alt="Academy.AI Logo" class="logo">
+    <h1>Academy.ai</h1>
+  </header>
+
+  <div class="main-content-wrapper">
+
+    <section class="how-to-guide-heading">
+      <h2>"How to" guide</h2>
+    </section>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="arrow-icon">V</span> Types of Projects Students Can Do
+      </div>
+      <div class="accordion-content">
+        <p>This section will explore various types of academic and personal projects suitable for students, ranging from research papers and coding challenges to creative arts and community service initiatives. We'll cover how to identify your interests and align them with project goals, ensuring a fulfilling and educational experience.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="arrow-icon">V</span> Roadmap to Learning
+      </div>
+      <div class="accordion-content">
+        <p>A comprehensive roadmap to guide your learning journey. This will include step-by-step guidance on acquiring new skills, utilizing online resources, and setting achievable milestones. Whether you're a beginner or looking to advance, this roadmap will help you navigate your educational path effectively.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="arrow-icon">V</span> How to Write a Project Report
+      </div>
+      <div class="accordion-content">
+        <p>Learn the essentials of crafting an impactful project report. This guide covers everything from structuring your report, writing clear and concise content, to citing sources and presenting your findings professionally. Tips for effective abstract writing, methodology description, and result interpretation will also be included.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <span class="arrow-icon">V</span> Best YouTube Playlists to Learn From
+      </div>
+      <div class="accordion-content">
+        <p>Discover hand-picked YouTube playlists that offer excellent educational content across various subjects. From programming tutorials and science explanations to design principles and language learning, these curated resources will help you supplement your studies and learn new concepts in an engaging visual format.</p>
+      </div>
+    </div>
+
+    <section class="bottom-paragraph-section">
+      <p>
+        Our "How to" Guide helps students understand every step of project building – from choosing the right idea to executing it successfully. It provides practical tips, learning roadmaps, and resources to make project work easier. With this guide, students can confidently plan, create, and present their projects.
+      </p>
+    </section>
+
+  </div> <script>
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.closest('.accordion-item');
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
