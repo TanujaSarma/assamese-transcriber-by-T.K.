@@ -4,195 +4,272 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Academy.AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    /* GENERAL STYLES */
     body, html {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background: url('Bg.png') no-repeat center center/cover;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(160deg, #82aaff, #c2e2ff);
+      min-height: 100vh;
     }
 
     /* HEADER */
     header {
       display: flex;
       align-items: center;
-      padding: 10px 15px;
+      padding: 20px 5%;
     }
     header img.logo {
-      height: 50px;
-      margin-right: 10px;
+      height: 60px;
+      margin-right: 15px;
     }
     header h1 {
-      font-size: 28px;
+      font-size: 2.5rem;
       color: white;
-      text-shadow: 2px 2px 4px #333;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
       margin: 0;
+      font-weight: 700;
+    }
+
+    /* MAIN CONTAINER FOR CENTERING CONTENT */
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
     }
 
     /* NAVIGATION BAR */
-    .nav-bar {
-      position: relative;
-      width: 90%;
-      max-width: 1000px;
-      margin: 15px auto;
-    }
-    .nav-bar img {
+    .nav-container {
+      background-color: white;
+      border-radius: 18px;
+      padding: 15px 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       width: 100%;
-      display: block;
+      max-width: 950px;
+      box-sizing: border-box; /* Important for padding and width */
     }
     .nav-links {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 20px; /* control spacing between links */
-      flex-wrap: wrap;
+      gap: 25px;
     }
     .nav-links a {
-      color: black;
+      color: #333;
       text-decoration: none;
-      font-size: 17px;
-      font-weight: bold;
-      padding: 8px 14px;
-      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      position: relative;
     }
-    .nav-links a:hover {
-      background: rgba(0,0,0,0.1);
+    .nav-links a:not(:last-child)::after {
+      content: '|';
+      color: #ccc;
+      margin-left: 25px;
+      font-weight: 100;
     }
-
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .nav-icons a {
+      display: inline-block;
+    }
+    .nav-icons svg {
+      width: 32px;
+      height: 32px;
+    }
+    
     /* PARAGRAPH SECTION */
     .paragraph-section {
-      position: relative;
-      width: 90%;
-      max-width: 900px;
-      margin: 30px auto;
-    }
-    .paragraph-section img {
+      background-color: white;
+      border-radius: 35px;
+      padding: 40px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       width: 100%;
-      display: block;
+      max-width: 870px; /* 950px - padding */
+      margin-top: 40px;
+      box-sizing: border-box;
     }
-    .paragraph-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 85%;
-      text-align: justify;
-      font-size: 18px;
-      color: black;
+    .paragraph-section p {
+      margin: 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #333;
+      text-align: left;
     }
-
+    
     /* ARROW */
-    .arrow {
-      display: block;
-      margin: 20px auto;
-      height: 100px;
-      width: auto;
+    .arrow-container {
+      margin: 20px 0;
     }
-
-    /* GALLERY SLIDER */
-    .gallery-container {
-      position: relative;
-      max-width: 600px;
-      margin: auto;
-      overflow: hidden;
+    .arrow-container svg {
+      width: 80px;
+      height: 80px;
     }
-    .gallery {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-    .gallery img {
+    
+    /* GALLERY SECTION */
+    .gallery-section {
       width: 100%;
-      flex-shrink: 0;
-      border-radius: 8px;
+      max-width: 950px;
+      text-align: left;
     }
-    .controls {
-      text-align: center;
-      margin-top: 10px;
-    }
-    .controls button {
-      padding: 8px 15px;
-      margin: 5px;
-      border: none;
-      background: rgba(0,0,0,0.6);
+    .gallery-section h2 {
+      font-size: 1.8rem;
       color: white;
-      border-radius: 5px;
-      cursor: pointer;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      margin-left: 10px;
+      margin-bottom: 20px;
     }
 
-    /* RESPONSIVE */
-    @media(max-width: 768px) {
-      header h1 { font-size: 20px; }
-      .nav-links { gap: 10px; }
-      .nav-links a { font-size: 14px; padding: 6px 10px; }
-      .paragraph-text { font-size: 15px; }
+    .slider-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .slider-container {
+      max-width: 700px;
+      width: 100%;
+      margin: auto;
+      overflow: hidden; /* This hides the other images */
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .slider img {
+      width: 100%;
+      display: block;
+      flex-shrink: 0;
+    }
+    .slider-arrow {
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    .slider-arrow svg {
+        width: 40px;
+        height: 40px;
+        fill: white;
+        filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 900px) {
+      header h1 { font-size: 2rem; }
+      .nav-container { flex-direction: column; gap: 15px; }
+      .nav-links a:not(:last-child)::after { display: none; } /* Hide separators on small screens */
+    }
+    @media (max-width: 600px) {
+        body { padding-bottom: 30px; }
+        header { padding: 15px; }
+        header img.logo { height: 50px; }
+        header h1 { font-size: 1.8rem; }
+        .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .nav-links a { font-size: 1rem; }
+        .paragraph-section { padding: 25px; border-radius: 25px;}
+        .paragraph-section p { font-size: 1rem; }
+        .gallery-section h2 { font-size: 1.5rem; text-align: center; }
+        .slider-wrapper {
+            gap: 5px;
+        }
+        .slider-arrow svg { width: 30px; height: 30px; }
     }
   </style>
 </head>
 <body>
-  <!-- HEADER -->
+  
   <header>
-    <img src="Logo.png" alt="Logo" class="logo">
-    <h1>ACADEMY.AI</h1>
+    <img src="Logo.png" alt="Academy.AI Logo" class="logo">
+    <h1>Academy.ai</h1>
   </header>
 
-  <!-- NAVIGATION -->
-  <div class="nav-bar">
-    <img src="Nav-bar.png" alt="Navigation Bar">
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#about">About Us</a>
-      <a href="#transcriber">Transcriber</a>
-      <a href="#guide">How to Guide</a>
-      <a href="#linkedin">LinkedIn</a>
-    </div>
-  </div>
-
-  <!-- PARAGRAPH -->
-  <div class="paragraph-section">
-    <img src="Home para.png" alt="Paragraph Background">
-    <div class="paragraph-text">
+  <main class="main-container">
+    
+    <nav class="nav-container">
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#transcriber">Transcriber</a>
+        <a href="#guide">"How to" guide</a>
+      </div>
+      <div class="nav-icons">
+        <a href="#linkedin" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="#0077B5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg>
+        </a>
+        <a href="#contact" aria-label="Contact">
+          <svg viewBox="0 0 512 512" fill="#dd4b39"><path d="M48 64C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zM317.1 211.3l-64.6 45.1-33.3-23.3-64.6-45.1C150.3 208.2 144 212.3 144 219.8V352c0 8.8 7.2 16 16 16h176c8.8 0 16-7.2 16-16V219.8c0-7.5-6.3-11.6-10.9-8.5zM368 192H144c-8.8 0-16-7.2-16-16s7.2-16 16-16h224c8.8 0 16 7.2 16 16s-7.2 16-16 16z"/></svg>
+        </a>
+      </div>
+    </nav>
+    
+    <section class="paragraph-section">
       <p>
         Welcome to Academy.AI your smart academic companion! Our platform is designed to guide students in their learning journey by providing useful resources on choosing the right projects, exploring project ideas, and understanding what skills to learn. The highlight of Academy.AI is our Assamese Transcriber, where students can easily record or upload their voice to get Assamese transcriptions, making learning and note-taking simpler. With helpful guides, resources, and tools, Academy.AI aims to make project work and learning more accessible, practical, and student-friendly.
       </p>
+    </section>
+    
+    <div class="arrow-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="#fff" filter="drop-shadow(0 2px 2px rgba(0,0,0,0.4))"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
     </div>
-  </div>
+    
+    <section class="gallery-section">
+      <h2>• Screenshots of our various pages</h2>
+      <div class="slider-wrapper">
+        <button class="slider-arrow" onclick="prevSlide()" aria-label="Previous Slide">
+            <svg viewBox="0 0 320 512"><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+        </button>
+        <div class="slider-container">
+            <div class="slider" id="slider">
+              <img src="tr2.png" alt="Transcription Demo 1">
+              <img src="tr2.png" alt="Transcription Demo 2">
+              <img src="tr2.png" alt="Transcription Demo 3">
+            </div>
+        </div>
+        <button class="slider-arrow" onclick="nextSlide()" aria-label="Next Slide">
+            <svg viewBox="0 0 320 512"><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8-12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+        </button>
+      </div>
+    </section>
 
-  <!-- ARROW -->
-  <img src="arrow .png" alt="Arrow" class="arrow">
-
-  <!-- GALLERY SLIDER -->
-  <div class="gallery-container">
-    <div class="gallery" id="gallery">
-      <img src="tr2.png" alt="Gallery Image">
-      <img src="tr2.png" alt="Gallery Image">
-      <img src="tr2.png" alt="Gallery Image">
-      <img src="tr2.png" alt="Gallery Image">
-    </div>
-  </div>
-  <div class="controls">
-    <button onclick="prevSlide()">Prev</button>
-    <button onclick="nextSlide()">Next</button>
-  </div>
-
+  </main>
+  
   <script>
-    let index = 0;
-    const gallery = document.getElementById("gallery");
-    const totalImages = gallery.children.length;
+    let currentIndex = 0;
+    const slider = document.getElementById("slider");
+    const slides = slider.children.length;
 
-    function showSlide(i) {
-      if (i >= totalImages) index = 0;
-      else if (i < 0) index = totalImages - 1;
-      else index = i;
-      gallery.style.transform = `translateX(-${index * 100}%)`;
+    function showSlide(index) {
+        if (index >= slides) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = slides - 1;
+        } else {
+            currentIndex = index;
+        }
+        const offset = -currentIndex * 100;
+        slider.style.transform = `translateX(${offset}%)`;
     }
 
-    function nextSlide() { showSlide(index + 1); }
-    function prevSlide() { showSlide(index - 1); }
+    function nextSlide() {
+        showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentIndex - 1);
+    }
   </script>
 </body>
 </html>
-      
