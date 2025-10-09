@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academy.AI - About Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* GENERAL STYLES */
+    :root {
+      --font-family: 'Poppins', sans-serif;
+      --dark-blue-fill: #1e2a78;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font-family);
+      background: url('Bg.png') no-repeat center center fixed;
+      background-size: cover;
+      background-color: #82aaff;
+      background-image: linear-gradient(160deg, #c2e2ff 0%, #82aaff 100%);
+      min-height: 100vh;
+      color: white;
+    }
+
+    /* --- LAYOUT CONTAINER --- */
+    .page-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+      box-sizing: border-box;
+    }
+
+    /* --- 1. HEADER SECTION --- */
+    .page-header {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+    }
+
+    .page-header .logo {
+      height: 60px;
+      margin-right: 15px;
+    }
+
+    .page-header .title-text {
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+        width: 100%;
+    }
+
+    /* --- 2. MAIN HEADING --- */
+    .main-heading {
+      margin: 0;
+      font-size: 5rem;
+      font-weight: 800;
+      text-shadow: 0 4px 10px rgba(21, 33, 83, 0.3);
+      text-align: center;
+    }
+
+    /* --- 3. MAIN CONTENT BOX --- */
+    .content-box {
+      background: rgba(25, 50, 150, 0.35);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 25px;
+      padding: 2.5rem;
+      max-width: 750px;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .content-box p {
+      margin: 0;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      font-weight: 400;
+      text-align: left;
+    }
+
+    /* --- 4. BOTTOM ARROW ELEMENTS --- */
+    .arrow-footer {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .arrow-group svg {
+      height: 40px;
+      width: auto;
+    }
+
+    /* --- RESPONSIVE DESIGN --- */
+    @media (max-width: 768px) {
+      .page-header .logo {
+        height: 45px;
+      }
+      .page-header .title-text {
+        font-size: 1.8rem;
+      }
+      .main-heading {
+        font-size: 3rem;
+      }
+      .content-box {
+        padding: 1.5rem;
+      }
+      .content-box p {
+        font-size: 1rem;
+      }
+      .arrow-footer {
+        padding: 0 1rem;
+      }
+      .arrow-group svg {
+        height: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-container">
+
+    <header class="page-header">
+      <img src="Logo.png" alt="Academy.ai Logo" class="logo">
+      <h1 class="title-text">Academy.ai</h1>
+    </header>
+
+    <div class="main-content">
+      <h1 class="main-heading">About us</h1>
+
+      <section class="content-box">
+        <p>
+          Academy.AI is the result of our college minor project, created with the aim of helping students in their academic journey. The website has been developed by Tanuja Sarma and Kritika Sharma, using HTML, CSS, and JavaScript. Our goal is to provide useful project guidance along with an Assamese transcriber to make learning more accessible. For any queries or to know more about our project, feel free to reach out at tanujasarmasayshi@gmail.com.
+        </p>
+      </section>
+    </div>
+
+    <footer class="arrow-footer">
+      <div class="arrow-group left-arrows">
+        <svg viewBox="0 0 178 32" xmlns="http://www.w3.org/2000/svg">
+          <g fill="var(--dark-blue-fill)" stroke="#FFF" stroke-width="2">
+            <path d="M22.3,1.2,1,16,22.3,30.8,31,23.3,18.5,16,31,8.7Z"/>
+            <path d="M66.3,1.2,45,16,66.3,30.8,75,23.3,62.5,16,75,8.7Z"/>
+            <path d="M110.3,1.2,89,16,110.3,30.8,119,23.3,106.5,16,119,8.7Z"/>
+            <path d="M154.3,1.2,133,16,154.3,30.8,163,23.3,150.5,16,163,8.7Z"/>
+          </g>
+        </svg>
+      </div>
+      <div class="arrow-group right-arrows">
+        <svg viewBox="0 0 178 32" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#FFF" stroke-width="2">
+            <path d="M22.3,1.2,1,16,22.3,30.8,31,23.3,18.5,16,31,8.7Z"/>
+            <path d="M66.3,1.2,45,16,66.3,30.8,75,23.3,62.5,16,75,8.7Z"/>
+            <path d="M110.3,1.2,89,16,110.3,30.8,119,23.3,106.5,16,119,8.7Z"/>
+            <path d="M154.3,1.2,133,16,154.3,30.8,163,23.3,150.5,16,163,8.7Z"/>
+          </g>
+        </svg>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
