@@ -96,6 +96,24 @@
       text-align: left;
     }
 
+    .homebt a {
+      display: inline-block; /* Allows padding and makes it block-like */
+      background-color: #0041C2; /* Button background color */
+      color: white; /* Text color */
+      padding: 12px 28px; /* Vertical and horizontal padding */
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none; /* Removes the underline from the link */
+      border-radius: 12px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .homebt a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
     /* --- 4. BOTTOM ARROW ELEMENTS --- */
     .arrow-footer {
       width: 100%;
@@ -135,23 +153,7 @@
       }
     }
 
-        .homebt a {
-      display: inline-block; /* Allows padding and makes it block-like */
-      background-color: #0041C2; /* Button background color */
-      color: white; /* Text color */
-      padding: 12px 28px; /* Vertical and horizontal padding */
-      font-size: 1.1rem;
-      font-weight: 600;
-      text-decoration: none; /* Removes the underline from the link */
-      border-radius: 12px; /* Rounded corners */
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    
-    .homebt a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-    }
+        
   </style>
 </head>
 <body>
@@ -173,7 +175,7 @@
       </section>
     </div>
      </div>
-<div class="homebt">
+<div align="center" class="homebt">
  <a href="index.html"> Home </a>
 </div>
     <footer class="arrow-footer">
